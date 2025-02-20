@@ -1,5 +1,7 @@
 """Check some of the functions in arithmetic.
 """
+
+import numpy as np
 from arithmetic import square
 
 
@@ -14,8 +16,19 @@ def test_square_integer():
     # then
     assert y == y_theo
 
+def test_square_float():
+    """Test that the square function returns floating point input"""
+    # given
+    x = 3.4
+    y_theo = 11.56
+    # when
+    y = square(x)
+    # then
+    assert np.isclose(y, y_theo)
+
 
 # code to execute only if Python is executed directly on this module,
 # NOT on import
 if __name__ == '__main__':
     test_square_integer()
+    test_square_float()
